@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Django | Deploy Python</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-900 text-slate-200 flex items-center justify-center p-6">
+  <main class="max-w-xl w-full">
+    <h1 class="text-4xl font-bold mb-2">Hello Django 🐍</h1>
+    <p class="text-slate-400 mb-8">
+      Aplicación Python desplegada con Gunicorn + Nginx + HTTPS.
+    </p>
+
+    <dl class="grid grid-cols-2 gap-3 text-sm">
+      <dt class="text-slate-400">Servidor</dt>
+      <dd class="font-mono">{{ hostname }}</dd>
+      <dt class="text-slate-400">Python</dt>
+      <dd class="font-mono">{{ python_version }}</dd>
+      <dt class="text-slate-400">Django</dt>
+      <dd class="font-mono">{{ django_version }}</dd>
+      <dt class="text-slate-400">Protocolo</dt>
+      <dd class="font-mono">{{ scheme }}</dd>
+      <dt class="text-slate-400">Hora del servidor</dt>
+      <dd class="font-mono">{{ server_time|date:"Y-m-d H:i:s" }}</dd>
+    </dl>
+  </main>
+</body>
+</html>

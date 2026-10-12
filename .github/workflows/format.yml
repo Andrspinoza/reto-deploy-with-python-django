@@ -1,0 +1,29 @@
+name: Calidad de código
+
+# CI: se ejecuta al crear o actualizar un Pull Request hacia main.
+# No toca el servidor; solo revisa el código.
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ruff:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Traer el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Ruff
+        run: pip install -r requirements-dev.txt
+
+      - name: Revisar calidad (lint)
+        run: ruff check .
+
+      - name: Revisar formato
+        run: ruff format --check .
