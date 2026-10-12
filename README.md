@@ -16,9 +16,6 @@ home/                     # app: vistas y rutas
 templates/index.html      # página principal
 requirements.in           # dependencias principales (las que decidimos)
 requirements.txt          # versiones exactas (generado desde el .in)
-requirements-dev.in/.txt  # herramientas de desarrollo (Ruff)
-.github/workflows/
-  format.yml              # CI: Ruff en cada Pull Request a main
 ```
 
 ## Correr en local
@@ -49,12 +46,4 @@ Variables de entorno que lee la app:
 ```bash
 pip install pip-tools
 pip-compile requirements.in -o requirements.txt
-```
-
-## Calidad de código
-
-```bash
-pip install -r requirements-dev.txt
-ruff check .
-ruff format --check .
 ```
